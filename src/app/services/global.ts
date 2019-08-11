@@ -1,0 +1,1 @@
+export const global= 'http://localhost:8888/api_bolex'; // ESTA DIRECCIÓN HA DE CAMBIARSE

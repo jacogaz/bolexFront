@@ -7,7 +7,7 @@
 
                     <div class="card wow fadeInRight mt-2 rounded">
                         <div class="card-body rounded">
-                            <form class="col-md-12">
+                            <form class="col-md-12" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
                                 <div class="form-group row pt-2">
                                     <div class="col-sm-12 pb-2">
                                         <small class="form-control border-0 text-center mb-1 pt-4 px-0">Register</small>
@@ -15,43 +15,59 @@
                                 </div>
                                 <div class="form-group row pt-3">
                                     <div class="col-sm-12">
-                                        <input type="text" name="name" id="name" class="form-control bg-light border-0 font-weight-light" placeholder="Name" required>
-                                        <!-- <small *ngIf="!email.valid && email.touched" class="invalid-feedback d-block">
-                            El e-mail no es valido
-                          </small> -->
+                                        <input type="text" name="name" id="name" #name="ngModel" [(ngModel)]="user.name"
+                                            class="form-control bg-light border-0 font-weight-light" placeholder="Name"
+                                            required>
+                                        <small *ngIf="!name.valid && name.touched" class="invalid-feedback d-block">
+                                            El nombre no es válido
+                                        </small>
                                     </div>
                                 </div>
                                 <div class="form-group row pt-1">
                                     <div class="col-sm-12">
-                                        <input type="text" name="surname" id="surname" class="form-control bg-light border-0 font-weight-light" placeholder="Surname" required>
-                                        <!-- <small *ngIf="!email.valid && email.touched" class="invalid-feedback d-block">
-                            El e-mail no es valido
-                          </small> -->
+                                        <input type="text" name="surname" id="surname" #surname="ngModel"
+                                            [(ngModel)]="user.surname"
+                                            class="form-control bg-light border-0 font-weight-light"
+                                            placeholder="Surname" required>
+                                        <small *ngIf="!surname.valid && surname.touched"
+                                            class="invalid-feedback d-block">
+                                            El apellido no es válido
+                                        </small>
                                     </div>
                                 </div>
                                 <div class="form-group row pt-1">
                                     <div class="col-sm-12">
-                                        <input type="text" name="email" id="email" class="form-control bg-light border-0 font-weight-light" placeholder="E-mail" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-                                        <!-- <small *ngIf="!email.valid && email.touched" class="invalid-feedback d-block">
-                            El e-mail no es valido
-                          </small> -->
+                                        <input type="text" name="email" id="email" #email="ngModel"
+                                            [(ngModel)]="user.email"
+                                            class="form-control bg-light border-0 font-weight-light"
+                                            placeholder="E-mail" required
+                                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                                        <small *ngIf="!email.valid && email.touched" class="invalid-feedback d-block">
+                                            El e-mail no es válido
+                                        </small>
                                     </div>
                                 </div>
                                 <div class="form-group row pt-1">
                                     <div class="md-form col-sm-12">
-                                        <input type="password" name="password" id="password" class="form-control bg-light border-0 font-weight-light" placeholder="Password" required>
-                                        <!-- <small *ngIf="!password.valid && password.touched" class="invalid-feedback d-block">
-                            La contraseña no es valida
-                          </small> -->
+                                        <input type="password" name="password" id="password" #password="ngModel"
+                                            [(ngModel)]="user.password"
+                                            class="form-control bg-light border-0 font-weight-light"
+                                            placeholder="Password" required>
+                                        <small *ngIf="!password.valid && password.touched"
+                                            class="invalid-feedback d-block">
+                                            La contraseña no es válida
+                                        </small>
                                     </div>
                                 </div>
                                 <div class="form-group row mt-4">
                                     <div class="md-form col-sm-12 mb-0 text-center">
-                                        <input type="submit" class="form-control btn btn-danger w-75 btn-login" value="Sign Up">
-                                        <!-- <small *ngIf="status == 'error'" class="invalid-feedback d-block">
-                            Datos incorrectos
-                          </small> -->
-                                        <a class="form-control border-0 text-center text-danger mt-2" [routerLink]="['/login']">Log In</a>
+                                        <input type="submit" class="form-control btn btn-danger w-75 btn-login"
+                                            value="Sign Up">
+                                        <small *ngIf="status == 'error'" class="invalid-feedback d-block">
+                                            Datos incorrectos
+                                        </small>
+                                        <a class="form-control border-0 text-center text-danger mt-2"
+                                            [routerLink]="['/login']">Log In</a>
                                     </div>
                                 </div>
                             </form>
