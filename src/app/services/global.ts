@@ -1,1 +1,3 @@
-export const global= 'http://localhost:8888/api_bolex'; // ESTA DIRECCIÓN HA DE CAMBIARSE
+export var global = {
+    url: 'http://api-bolex.miguelhang.es/'
+  } 

@@ -12,25 +12,22 @@ export class UserService {
     constructor(
         public _http: HttpClient
     ) {
-        this.url = global;
+        this.url = global.url;
     }
 
-    register(user): Observable<any>{
-        let json = JSON.stringify(user);
-         let params = `json={$json}`;
+    register(user): Observable<any> {
+        const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-
-        return this._http.post(`{$this.url}register`, params, {headers:headers});
+        return this._http.post(`${this.url}users/register`, user, {headers});
     }
 
-    login(user): Observable<any>{
+    login(user): Observable<any> {
         let json = JSON.stringify(user);
-        let params = `json={$json}`;
+        let params = `json=${json}`;
 
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
 
-        return this._http.post(`{$this.url}login`, params, {headers:headers});
+        return this._http.post(`${this.url}users/authenticate`, params, {headers});
     }
 
 }

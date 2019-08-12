@@ -16,17 +16,17 @@ export class RegisterComponent implements OnInit {
   constructor(
     private user_service: UserService
   ) {
-    this.user = new User(1, '', '', '', '');
+    this.user = new User('', '', '', '', 'Admin');
    }
 
   ngOnInit() {
   }
 
   onSubmit(form){
+    console.log(this.user);
     this.user_service.register(this.user).subscribe(
       response => {
-        // tratar los datos con la respuesta de la api,
-        // hacer que inicie sesión
+        console.log(response);
       },
       err => {
         this.status = 'error';
